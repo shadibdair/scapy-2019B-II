@@ -1,10 +1,10 @@
 # TCP
 
-* TCP - layer 4 (with udp) - in TCP we have the ports
-* IP - layer 3 - In IP we have dist address and src address
-* Ethernet - layer 2 (with blutooth) - In Ethernet we have dist address and src address of the MAC
+* TCP (and UDP) - layer 4 - where ports matter
+* IP - layer 3 - main headers are the source and the destination
+* Ethernet (and Bluetooth) - layer 2 - main headers are dest and src addresses called MAC addresses
 
-#### With scapy, we can check all the properties of TCP:
+#### with scapy, we can check all the headers (properties) of TCP:
 ```
 ls(TCP())
 sport      : ShortEnumField                      = 20              (20)
@@ -19,7 +19,7 @@ chksum     : XShortField                         = None            (None)
 urgptr     : ShortField                          = 0               (0)
 options    : TCPOptionsField                     = []              (b'')
 ```
-#### With scapy, we can check all the properties of IP:
+#### with scapy, we can check all headers (properties) of IP:
 ```
 ls(IP())
 version    : BitField (4 bits)                   = 4               (4)
@@ -59,7 +59,7 @@ options    : PacketListField                     = []              ([])
 ```
 
 ```
-a=IP(dst="1.1.1.1")  # here we change the src of this IP
+a=IP(dst="1.1.1.1")  # here we change the destination of this IP packet
 ls(a)
 
 version    : BitField (4 bits)                   = 4               (4)

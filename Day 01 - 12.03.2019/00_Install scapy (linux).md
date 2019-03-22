@@ -1,4 +1,4 @@
-# Steps to run scapy in linux(deb)
+# Steps to run scapy in Linux(deb)
 
 ## Step 1 - change user to root
 ```bash
@@ -12,7 +12,7 @@ root@HP-Printer:~# apt install python3
 root@HP-Printer:~# apt install python3-pip
 ```
 
-## Step 3 - check if python and pip installed successfully
+## Step 3 - check if python and pip are installed successfully
 ```
 root@HP-Printer:~# whatis python3
 python3 (1)          - an interpreted, interactive, object-oriented programming language

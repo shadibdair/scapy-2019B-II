@@ -11,7 +11,7 @@ curl (1)             - transfer a URL
 ```
 a=sniff(20)
 ```
-* in othe window run now:
+* afterwards, run in another window:
 ```
 anna@HP-Printer:~$ curl https://www.google.com/
 ```
@@ -83,7 +83,7 @@ urgptr     : ShortField                          = 0               (0)
 options    : TCPOptionsField                     = [('MSS', 1460), ('SAckOK', b''), ('Timestamp', (3167163822, 0)), ('NOP', None), ('WScale', 7)] (b'')
 ```
 
-* Store this packet to a variable (so it will be easy to access the properties of this packet)
+* Store this packet to a variable (so it will be easy to access the headers of this packet)
 ```
 b=a[5]
 ls(b)
@@ -120,7 +120,7 @@ urgptr     : ShortField                          = 0               (0)
 options    : TCPOptionsField                     = [('MSS', 1460), ('SAckOK', b''), ('Timestamp', (3167163822, 0)), ('NOP', None), ('WScale', 7)] (b'')
 ```
 
-* Now - lets access the ip src address of this packet:
+* Now - lets access the IP src address of this packet:
 ```
 print(b[IP].src)
 
