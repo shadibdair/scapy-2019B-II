@@ -95,6 +95,30 @@ go back to the tab that runs tcpdump, and see:
 10:21:41.976913 IP google-public-dns-b.google.com > localhost: ICMP echo request, id 0, seq 0, length 8
 ```
 
+### Tcpdump to pcap
+create a new python file, that sends 2 packets to localhost:
+```
+cat > send_test.py
+```
+now paste this content:
+```
+from scapy.all import *
+
+# send a ICMP (ping) to local host - from google
+sendp(IP(dst="127.0.0.1",src="8.8.4.4")/ICMP())
+
+# send a DNS request to local hoste
+sendp(IP(dst="127.0.0.1")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname="www.google.com")),verbose=0)
+```
+and save (with control+d)
+
+
+
+
+
+
+
+
 
 ### example of fuzzing usage : Browser security
 Modern web browsers undergo extensive fuzzing. The Chromium code of Google Chrome is continuously fuzzed by the Chrome Security Team with 15,000 cores. For Microsoft Edge and Internet Explorer, Microsoft performed fuzzed testing with 670 machine-years during product development, generating more than 400 billion DOM manipulations from 1 billion HTML files.
