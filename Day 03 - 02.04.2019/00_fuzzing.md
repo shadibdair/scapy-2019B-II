@@ -104,11 +104,12 @@ now paste this content:
 ```
 from scapy.all import *
 
-# send a ICMP (ping) to local host - from google
+# send a ICMP (ping) to local host
 sendp(IP(dst="127.0.0.1",src="8.8.4.4")/ICMP())
 
-# send a DNS request to local hoste
-sendp(IP(dst="127.0.0.1")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname="www.google.com")),verbose=0)
+
+# send a ICMP (ping) to local host 
+sendp(IP(dst="127.0.0.1",src="1.1.1.1")/ICMP())
 ```
 and save (with control+d)
 
