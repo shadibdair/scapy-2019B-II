@@ -96,9 +96,9 @@ go back to the tab that runs tcpdump, and see:
 ```
 
 ### Tcpdump to pcap
-create a new python file, that sends 2 packets to localhost:
+* create a new python file, that sends 2 packets to localhost:
 ```
-cat > send_test.py
+root@Secondary:~# cat > send_test.py
 ```
 now paste this content:
 ```
@@ -112,8 +112,19 @@ sendp(IP(dst="127.0.0.1")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname="www.google.com"
 ```
 and save (with control+d)
 
-
-
+* run in a new window a tcpdump that listens to localhost metwork, and saved it to pcap file:
+```
+root@Secondary:~# tcpdump test.pcap -i lo
+```
+* go back to the other window, and run the send_test.py file
+```
+root@Secondary:~# python3 send_test.py
+```
+* go to the tcpdump window - and stop the listening with `control+c`, now all the packets are saved to a file named `test.pcap`
+* run a command that will read the `test.pcap` content:
+```
+tcpdump -r test.pcap
+```
 
 
 
