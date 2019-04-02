@@ -137,9 +137,9 @@ from scapy.all import *
 # rdpcap comes from scapy and loads in our pcap file
 packets = rdpcap('test.pcap')
 print(packets)
+print(len(packets))
 
 pkt = packets[0]
-print(pkt.fields['subtype'])
 pkt.show()
 ```
 and save (with control+d), and run the send_test.py file
