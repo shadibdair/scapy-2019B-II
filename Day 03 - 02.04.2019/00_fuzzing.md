@@ -126,3 +126,23 @@ root@Secondary:~# python3 send_test.py
 ```
 tcpdump -r test.pcap
 ```
+* craete a new python script, that reads the pcap file
+```
+root@Secondary:~# cat > read_test.py
+```
+now paste this content:
+```
+from scapy.all import *
+
+# rdpcap comes from scapy and loads in our pcap file
+packets = rdpcap('test.pcap')
+print(packets)
+
+pkt = packets[0]
+print(pkt.fields['subtype'])
+pkt.show()
+```
+and save (with control+d), and run the send_test.py file
+```
+root@Secondary:~# python3 read_test.py
+```
