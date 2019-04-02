@@ -133,10 +133,10 @@ from scapy.all import *
 # rdpcap comes from scapy and loads in our pcap file
 packets = rdpcap('test.pcap')
 print(packets)
-print(len(packets))
+for i in range(0,len(packets)):
+    pkt = packets[i]
+    pkt.show()
 
-pkt = packets[0]
-pkt.show()
 ```
 and save (with control+d), and run the send_test.py file
 ```
@@ -146,7 +146,6 @@ root@Secondary:~# python3 read_test.py
 The outpot is:
 ```
 <test.pcap: TCP:0 UDP:0 ICMP:1 Other:0>
-1
 
   type      = 0x800
 ###[ IP ]###
