@@ -106,10 +106,6 @@ from scapy.all import *
 
 # send a ICMP (ping) to local host
 sr1(IP(dst="127.0.0.1",src="8.8.4.4")/ICMP())
-
-
-# send a ICMP (ping) to local host 
-sr1(IP(dst="127.0.0.1",src="1.1.1.1")/ICMP())
 ```
 and save (with control+d)
 
@@ -145,4 +141,32 @@ pkt.show()
 and save (with control+d), and run the send_test.py file
 ```
 root@Secondary:~# python3 read_test.py
+```
+
+The outpot is:
+```
+<test.pcap: TCP:0 UDP:0 ICMP:1 Other:0>
+1
+
+  type      = 0x800
+###[ IP ]###
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 28
+     id        = 1
+     flags     =
+     frag      = 0
+     ttl       = 64
+     proto     = icmp
+     chksum    = 0xefd3
+     src       = 8.8.4.4
+     dst       = 127.0.0.1
+     \options   \
+###[ ICMP ]###
+        type      = echo-request
+        code      = 0
+        chksum    = 0xf7ff
+        id        = 0x0
+        seq       = 0x0
 ```
