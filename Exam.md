@@ -29,3 +29,25 @@ write the code that sends a DNS request to `1.1.1.1:53` in order to get the addr
 ```python
 sr1(IP(dst="1.1.1.1")/UDP(dport=53)/DNS(qd=DNSQR(qname="www.ynet.co.il")))
 ```
+
+### Question 5
+Given the following code:
+```python
+from scapy.all import sniff, UDP, TCP
+
+def custom_action(packet):
+    res=""
+    if packet.getlayer(UDP)!=None:
+        print(packet)
+        res=packet["UDP"].sport
+    elif packet.getlayer(TCP)!=None:
+        res=packet["TCP"].flags
+    return res 
+
+sniff(filter="ip", prn=custom_action, count=10)
+```
+explain what this code does
+### Answer 5
+sniffs 10 packets, and prints for each packet:
+    * the flags (if the packet is a `TCP` packet)
+    * the sport (if the packet is an `UDP` packet)

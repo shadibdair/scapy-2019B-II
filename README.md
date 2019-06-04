@@ -39,6 +39,4 @@
 * 2 ways to read packets from `pacap` file with scapy 
     * `rdcap("")`
     * `sniff(offline="")`
-
-
-### Part 6 - Port scanning with `TCP` packets
+* sniff options (`prn`, `count`, etc...)
